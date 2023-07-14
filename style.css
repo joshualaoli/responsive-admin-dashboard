@@ -53,7 +53,7 @@ body {
     top: 0;
     left: 0;
     background-color: var(--light);
-    width: 238px;
+    width: 230px;
     height: 100%;
     z-index: 2000;
     overflow-x: hidden;
@@ -67,7 +67,7 @@ body {
     width: 60px;
 }
 .sidebar .logo {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     height: 56px;
     display: flex;
@@ -190,7 +190,7 @@ body {
 .content nav .bx.bx-menu {
     cursor: pointer;
     color: var(--dark);
-    
+    margin-left: 10px;
 }
 .content nav form {
     max-width: 400px;
@@ -227,6 +227,7 @@ body {
     border-radius: 0 36px 36px 0;
     cursor: pointer;
 }
+/* Notif and Image */
 .content nav .notif {
     font-size: 16px;
     position: relative;
@@ -240,9 +241,138 @@ body {
     background: var(--danger);
     color: var(--light);
     border-radius: 50%;
-    border: 2px solid --light;
+    border: 2px solid var(--light);
     font-weight: 700;
     font-size: 12px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content nav .profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
 
+}
+/* Toggle */
+.content nav .theme-toggle {
+    display: block;
+    min-width: 50px;
+    height: 25px;
+    background: var(--grey);
+    cursor: pointer;
+    position: relative;
+    border-radius: 25px;
+}
+.content nav .theme-toggle::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: calc(25px - 4px);
+    background: var(--primary);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+.content nav #theme-toggle:checked+.theme-toggle::before {
+    left: calc(100% - (25px - 4px) - 2px);
+}
+
+/* Main Content */
+.content main {
+    width: 100%;
+    max-height: calc(100vw - 56px);
+    padding: 36px 24px;
+}
+.content main .header {
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+}
+.content main .header .left {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+.content main .header .breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    font-size: 16px;
+}
+.content main .header .breadcrumb li {
+    color: var(--dark);
+}
+.content main .header .breadcrumb li a {
+    color: var(--dark-grey);
+    pointer-events: none;
+}
+.content main .header .breadcrumb li a.active {
+    color: var(--primary);
+    pointer-events: none;
+}
+.content main .header .report {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 25px;
+    background: var(--primary);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 8px;
+    font-weight: 400;
+}
+.content main .insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 24px;
+    margin-top: 40px;
+}
+.content main .insights li {
+    padding: 24px;
+    background-color: var(--light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    grid-gap: 20px;
+    cursor: pointer;
+}
+.content main .insights li .bx {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content main .insights li:nth-child(1) .bx {
+    background: var(--light-primary);
+    color: var(--primary);
+}
+.content main .insights li:nth-child(2) .bx {
+    background: var(--light-warning);
+    color: var(--warning);
+}
+.content main .insights li:nth-child(3) .bx {
+    background: var(--light-success);
+    color: var(--success);
+}
+.content main .insights li:nth-child(4) .bx {
+    background: var(--light-danger);
+    color: var(--danger);
+}
+.content main .insights .info h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+}
+.content main .insights .info p {
+    color: var(--dark);
 }
